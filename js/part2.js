@@ -20,14 +20,10 @@ function ConversionPart2() {
     outputVal = temp + outputVal;
     unsigned = Math.trunc(unsigned / 2);
   }
-  while (outputVal.length < 7) {
+  while (outputVal.length < 32) {
     outputVal = 0 + outputVal;
   }
-  if (negative == true) {
-    outputVal = 1 + outputVal;
-  } else {
-    outputVal = 0 + outputVal;
-  }
+
 
 
   var intArr = outputVal.split("");
@@ -48,24 +44,40 @@ function ConversionPart2() {
 
   if (intArr[intArr.length - 1] == 0) {
     intArr[intArr.length - 1] = 1;
-  } else if (intArr[intArr.length - 1] == 1) {
+    for (var i = intArr.length - 1; i >= 0; i--) {
+      outputVal3 = intArr[i] + outputVal3;
+    }
+    if (negative){
+      FormatAndShowOutput([outputVal3, outputVal, SignedDecimalInt], 2);
+    }
+      else{
+        FormatAndShowOutput([outputVal, outputVal3, SignedDecimalInt], 2);
+      }
+  } else if (intArr[z] == 1) {
     carry = true;
-    intArr[intArr.length - 1] = 0;
-    while (carry=true) {
-      if (intArr[i] == 0) {
-        intArr[i] = 1;
+    intArr[z] = 0;
+    z--;
+    while (carry == true) {
+      if (intArr[z] == 0) {
+        intArr[z] = 1;
         carry = false;
-      } else if (intArr[i] == 1) {
-        intArr[i]=0;
+      } else if (intArr[z] == 1) {
+        intArr[i] = 0;
       }
     }
-  }
-  for (var i = intArr.length - 1; i > 0; i--) {
-    outputVal3 = intArr[i] + outputVal3;
+    for (var q = intArr.length - 1; q >= 0; q--) {
+      outputVal3 = intArr[q] + outputVal3;
+    }
+    if (negative){
+      FormatAndShowOutput([outputVal3, outputVal, SignedDecimalInt], 2);
+    }
+      else{
+        FormatAndShowOutput([outputVal, outputVal3, SignedDecimalInt], 2);
+      }
   }
 
 
-  FormatAndShowOutput([outputVal, outputVal3, SignedDecimalInt], 2);
+
 
   // Show the output on the screen
   //FormatAndShowOutput([outputValue, outputValueTwosComplement, SignedDecimalInt], 2);

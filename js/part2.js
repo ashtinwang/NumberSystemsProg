@@ -2,7 +2,8 @@ function ConversionPart2() {
   //
   var SignedDecimalInt = document.getElementById("2_SignedInt").value;
 
-  //I don't understand what "input format will be [-][0-9]+" is supposed to mean
+  //outputs in binary because the example showed
+  //hex conversion can be done by part 1 so I'm following the example rather than the hub
 
   var negative = false;
   if (SignedDecimalInt.charAt(0) == "-") {

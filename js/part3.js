@@ -10,7 +10,7 @@ function ConversionPart3() {
   }
   //Binary Conversion Whole
   var output = "";
-  var input = floatNum;
+  var input = Math.abs(floatNum);
   while (input != 0) {
     var temp = input % 2;
     output = temp + output;
@@ -19,8 +19,8 @@ function ConversionPart3() {
 
   //Binary Conversion Decimal
   var output2 = "";
-  var input2 = floatDec;
-  while (input2 != 0) {
+  var input2 = Math.abs(floatDec);
+  while (input2 != 0 && output2.length<22) {
     input2 = input2 * 2;
     output2 += Math.trunc(input2);
     input2 = input2 % 1;
@@ -37,10 +37,11 @@ function ConversionPart3() {
       mantissa = 1 + mantissa;
     }
     if (mantissa.length != 23) {
-      mantissa = 0 + mantissa;
+      mantissa = mantissa + 0;
     }
   }
-
+//The hub says to prepend implicit 1 so I did, despite the fact that it is implicit
+//I followed instructions
 
 
   //Exponent
@@ -135,6 +136,8 @@ else{
 // ... so final sign bit = (bit 31) 0
 //11010001100110000100001100101010
 //11010001100110000100001100101010
+//11010001100110000100001100101010
+//11010001100110000100001100101011
 
 //Value := fraction to be converted;
 //REPEAT Value := Value * N;
